@@ -95,12 +95,14 @@ void	check_length(char **format, t_printf **strrs)
 	}
 }
 
-   int		check_specifier(va_list **args, t_printf **strrs)
+   int		check_specifier(char **format, t_printf **strrs, va_list args)
    {
    int	ret;
    char c;
 
-   if (c == 's' || c == 'S')
-   ret = va_args(args, char *);
-   
+   if (c == 's' || c == 'S') /*ft_strchr(*(format), 's') || ft_strchr((*format), 'S')*/
+   ret = ft_putstr(strrs, args);
+   /*if (c == 'd' || c == 'i') ft_strchr(*(format), 'd') || ft_strchr((*format), 'i')
+   ret = print_num*/
+   return (ret);
    }

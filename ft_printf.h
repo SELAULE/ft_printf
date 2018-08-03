@@ -27,7 +27,7 @@ typedef struct s_printf
 	int	len;
 }		t_printf;
 
-void		ft_printf(const char *format, ...);
+int			ft_printf(const char *format, ...);
 void		check_flags(char **format,t_printf **strrs);
 void		check_precis(char **format, t_printf **strrs);
 void		check_width(char **format, t_printf **strrs);
@@ -38,4 +38,9 @@ int			ret_putstr(char *s);
 void 		ret_putchar(char c, int n);
 void 		ret_putnstr(char *s, int n);
 long long	get_value(t_printf **strrs, va_list args);
+int			print_num_hex_upper(t_printf **strrs, va_list args);
+int			print_num_hex(t_printf **strrs, va_list args);
+int			print_num_oct_upper(t_printf **strrs, va_list args);
+int			print_num_oct(t_printf **strrs, va_list args);
+long long   get_value_uns(t_printf **strrs, va_list args);
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_num_oct.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/03 07:28:37 by nselaule          #+#    #+#             */
+/*   Updated: 2018/08/03 07:28:39 by nselaule         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int     print_num_oct(t_printf **strrs, va_list args)
@@ -7,7 +19,7 @@ int     print_num_oct(t_printf **strrs, va_list args)
     int ret;
     int sign;
 
-    str = ft_itoa_base(get_value(strrs, args), 8);
+    str = ft_itoa_base(get_value_uns(strrs, args), 8);
     ret = 0;
     sign = 0;
     if ((*strrs)->precis > ft_strlen(str))

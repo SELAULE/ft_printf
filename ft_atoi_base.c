@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
 int                 len_base(long long nb, int base)
 {
     int             len;
@@ -33,7 +32,7 @@ int                 len_base(long long nb, int base)
     return (len);
 }
 
-char                *ft_itoa_base(long long n, int base, int code)
+char                *ft_itoa_base(long long n, int base)
 {
     char            *ret;
     int             s;

@@ -1,13 +1,13 @@
 #include "ft_printf.h"
 
-int     print_num_hex(t_printf **strrs, va_list args)
+int     print_num_hex_upper(t_printf **strrs, va_list args)
 {
     int fill_me;
     char *str;
     int ret;
     int sign;
 
-    str = ft_itoa_base(get_value(strrs, args), 16);
+    str = ft_itoa_base_upper(get_value(strrs, args), 16);
     ret = 0;
     sign = 0;
     if ((*strrs)->precis > ft_strlen(str))

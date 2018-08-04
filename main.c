@@ -1,4 +1,6 @@
 #include  "ft_printf.h"
+#include <stdio.h>
+
 int		main(void)
 {
 	ft_printf("Preceding with blanks: %10d \n", 1977);

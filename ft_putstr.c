@@ -20,7 +20,7 @@ int     ret_putstr(char *s)
     while (s[i])
     {
         write(1, &s[i], 1);
-        i++
+        i++;
     }
     return (i);
 }
@@ -45,12 +45,12 @@ void     ret_putnstr(char *s, int n)
     while (s[i] && i < n)
     {
         write(1, &s[i], 1);
-        i++
+        i++;
     }
     return (i);
 }
 
-int     ft_putstr(va_list args, t_printf **strrs)
+int     ft_print_str(va_list args, t_printf **strrs)
 {
     int fill_me;
     char *str;
@@ -68,14 +68,14 @@ int     ft_putstr(va_list args, t_printf **strrs)
         }
         else
         {
-            ret_putnstr(((*strrs)->flags == '0') ? '0' : ' ' , fill);
+            ret_putnstr(((*strrs)->flags == '0') ? '0' : ' ' , fill_me);
             ret_putstr((!str) ? VOID_STR : str);
         }
         return ((*strrs)->width);
     }
      if ((*strrs)->precis < ft_strlen(!str) ? VOID_STR : str && (*strrs)->precis > 0)
         {
-            ret_putnstr(((ft_strlen(!str) ? VOID_STR : str), (*strrs)->precis)
+            ret_putnstr(((ft_strlen(!str) ? VOID_STR : str), (*strrs)->precis)))
             return ((*strrs)->precis);
         }
         ret = ret_putstr(ft_strlen(!str) ? VOID_STR : str);

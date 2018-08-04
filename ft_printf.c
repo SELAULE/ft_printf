@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <strings.h>/*************************DELETE****************************/
 
 void	order_of_call(char **format, va_list args, t_printf **strrs)
 {

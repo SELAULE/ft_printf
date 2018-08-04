@@ -11,20 +11,21 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>/********************DELETE*******************************/
 
-long long   get_add(void v)
+void    print_mem(void v)
 {
     long long *ptr;
 
-    ptr = &v;
-    return (ptr);
+    ptr = malloc(sizeof(long long));
+    ptr = &(void)v;
+    write(1, &ptr, 1);
 }
 
 int     main(void)
 {
-    long long res;
+    char c;
 
-    res = get_add();
-    printf("%lld : ", res); 
-    return (0);
+    c = 42;
+    print_mem((char)c);
 }

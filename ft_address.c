@@ -18,7 +18,7 @@ void    print_mem(void v)
     long long *ptr;
 
     ptr = malloc(sizeof(long long));
-    ptr = &(void)v;
+    ptr = &v;
     write(1, &ptr, 1);
 }
 

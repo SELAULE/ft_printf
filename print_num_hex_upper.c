@@ -24,7 +24,7 @@ int     print_num_hex_upper(t_printf **strrs, va_list args)
     sign = 0;
     if ((*strrs)->precis > ft_strlen(str))
     {
-        fill_me = *(strrs)->precis - ft_strlen(str);
+        fill_me = (*strrs)->precis - ft_strlen(str);
         ret_putchar('0', fill_me);
         ret_putstr(str);
         return(((*strrs)->precis));

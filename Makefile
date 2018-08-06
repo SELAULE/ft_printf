@@ -14,10 +14,11 @@
 #define FT_PRINTF.H
 
 SRC = *.c;
+NAME = ft_printf.a
 FLAGS = -Wall -Wextra -Werror
 OBJ = *.o
-all:
+all: $(NAME)
+$(NAME):
 	gcc -c $(FLAGS) $(SRC)
-	ar rc $(OBJ)
-run:	
-	./a.out
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)

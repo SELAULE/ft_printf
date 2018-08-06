@@ -17,10 +17,10 @@ char	*ft_strchr(const char *s, int c)
 	size_t	i;
 	char	to_c;
 	char	*str;
-	size_t	len;
+//	size_t	len;
 
 	i = 0;
-	len = ft_strlen(s);
+//	len = ft_strlen(s);
 	to_c = (char)c;
 	str = (char*)s;
 	if (str[i] == to_c)

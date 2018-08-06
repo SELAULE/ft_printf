@@ -47,37 +47,36 @@ void     ret_putnstr(char *s, int n)
         write(1, &s[i], 1);
         i++;
     }
-    return (i);
 }
 
-int     ft_print_str(va_list args, t_printf **strrs)
+int     ft_print_str( t_printf **strrs, va_list args)
 {
     int fill_me;
     char *str;
     int ret;
 
     ret = 0;
-    str = va_args(args, char *);
+    str = va_arg(args, char *);
     if((*strrs)->width > ft_strlen((!str) ? VOID_STR : str))
     {
         fill_me = (*strrs)->width - ft_strlen((!str) ? VOID_STR : str);
         if ((*strrs)->flags == '-')
         {
-            ret_putstr(ft_strlen(!str) ? VOID_STR : str);
+            ret_putstr((!str) ? VOID_STR : str);
             ret_putchar(' ', fill_me);
         }
         else
         {
-            ret_putnstr(((*strrs)->flags == '0') ? '0' : ' ' , fill_me);
+            ret_putchar(((*strrs)->flags == '0') ? '0' : ' ' , fill_me);
             ret_putstr((!str) ? VOID_STR : str);
         }
         return ((*strrs)->width);
     }
-     if ((*strrs)->precis < ft_strlen(!str) ? VOID_STR : str && (*strrs)->precis > 0)
+     if ((*strrs)->precis < ft_strlen((!str) ? VOID_STR : str) && (*strrs)->precis > 0)
         {
-            ret_putnstr(((ft_strlen(!str) ? VOID_STR : str), (*strrs)->precis)))
+            ret_putnstr((!str) ? VOID_STR : str, (*strrs)->precis);
             return ((*strrs)->precis);
         }
-        ret = ret_putstr(ft_strlen(!str) ? VOID_STR : str);
+        ret = ret_putstr((!str) ? VOID_STR : str);
         return (ret);
 }

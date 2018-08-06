@@ -13,14 +13,17 @@
 #include "ft_printf.h"
 #include <strings.h>/*************************DELETE****************************/
 
-void	order_of_call(char **format, va_list args, t_printf **strrs)
+int		order_of_call(char **format, va_list args, t_printf **strrs)
 {
+	int	ret;
+
 	(*format)++;
 	check_flags(format, strrs);
 	check_width(format, strrs);
 	check_precis(format, strrs);
 	check_length(format, strrs);
-	return ;
+	ret = check_specifier(format, strrs, args);
+	return (ret);
 }
 
 int	ft_printf(const char *format, ...)
@@ -36,10 +39,9 @@ int	ft_printf(const char *format, ...)
 
 	while (*fmt)
 	{
-
 		if (*fmt == '%')
 		{
-			bzero(strrs, sizeof(t_printf));
+			bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
 			order_of_call(&fmt, args, &strrs);
 		}
 		else
@@ -48,7 +50,7 @@ int	ft_printf(const char *format, ...)
 			fmt++;
 		}
 	}
-	free(strrs);
 	va_end(args);
+	free(strrs);
 	return (print_char);
 }

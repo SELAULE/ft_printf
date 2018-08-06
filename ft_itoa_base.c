@@ -11,26 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int                 len_base(long long nb, int base)
-{
-    int             len;
-
-    len = 0;
-    if (nb < 0)
-    {
-        nb = -nb;
-        if (base == 10)
-            len++;
-    }
-    len++;
-    nb /= base;
-    while (nb)
-    {
-        len++;
-        nb /= base;
-    }
-    return (len);
-}
 
 char                *ft_itoa_base(long long n, int base)
 {

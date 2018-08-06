@@ -7,18 +7,18 @@ long long   get_value_uns(t_printf **strrs, va_list args)
 
     c = (*strrs)->len;
     if (c == 1)
-    ret = va_args(args, unsigned char);
+    ret = (unsigned char)va_arg(args, int);
         if (c == 2)
-    ret = va_args(args, unsigned short int);
+    ret = (unsigned short int)va_arg(args, int);
         if (c == 3)
-    ret = va_args(args, unsigned long int);
+    ret = va_arg(args, unsigned long int);
         if (c == 4)
-    ret = va_args(args, unsigned long long int);
+    ret = va_arg(args, unsigned long long int);
         if (c == 5)
-    ret = va_args(args, uintmax_t);
+    ret = va_arg(args, uintmax_t);
         if (c == 6)
-    ret = va_args(args, size_t);
+    ret = va_arg(args, size_t);
         if (c == 0)
-    ret = va_args(args, int);
+    ret = va_arg(args, int);
     return (ret);
 }

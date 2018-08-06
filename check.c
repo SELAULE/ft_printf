@@ -59,50 +59,51 @@ void	check_length(char **format, t_printf **strrs)
 	c = *(*format);
 	if (c == 'h' && (c + 1) == 'h')
 	{
-		(*format)->len = 1;
+		(*strrs)->len = 1;
 		(*format)++;
 		return ;
 	}
 	if (c == 'h' && (c + 1) != 'h')
 	{
-		(*format)->len = 2;
+		(*strrs)->len = 2;
 		(*format)++;
 		return ;
 	}
 	if (c == 'l' && (c + 1) != 'l')
 	{
-		(*format)->len = 3;
+		(*strrs)->len = 3;
 		(*format)++;
 		return ;
 	}
 	if (c == 'l' && (c + 1) == 'l')
 	{
-		(*format)->len = 4;
+		(*strrs)->len = 4;
 		(*format)++;
 		return ;
 	}
 	if (c == 'j')
 	{
-		(*format)->len = 5;
+		(*strrs)->len = 5;
 		(*format)++;
 		return ;
 	}
 	if (c == 'z')
 	{
-		(*format)->len = 6;
+		(*strrs)->len = 6;
 		(*format)++;
 		return ;
 	}
 }
 
-   int		check_specifier(char **format, t_printf **strrs, va_list args)
+int		check_specifier(char **format, t_printf **strrs, va_list args)
    {
    int	ret;
    char c;
 
+   c = *(*format);
    if (c == 's' || c == 'S') /*ft_strchr(*(format), 's') || ft_strchr((*format), 'S')*/
-   ret = ft_putstr(strrs, args);
-   /*if (c == 'd' || c == 'i') ft_strchr(*(format), 'd') || ft_strchr((*format), 'i')
-   ret = print_num*/
+   ret = ft_print_str(strrs, args);
+   if (c == 'd' || c == 'i')/* ft_strchr(*(format), 'd') || ft_strchr((*format), 'i')*/
+   ret = print_num(strrs, args);
    return (ret);
    }

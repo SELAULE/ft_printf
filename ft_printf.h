@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdint.h>/***********************DELETE*****************************/
+//#include <stdint.h>/***********************DELETE*****************************/
 #include "libft/libft.h"
 #define VOID_STR "(null)"
 

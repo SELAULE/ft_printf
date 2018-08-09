@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:29:33 by nselaule          #+#    #+#             */
-/*   Updated: 2018/07/23 14:18:10 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/09 17:11:52 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	check_width(char **format, t_printf **strrs)
 	char c;
 
 	c = *(*format);
-	while (*(*format) >= 0 && *(*format) <= 9) /* while (c >= 0 && c <= 9); */
+	while (*(*format) >= '0' && *(*format) <= '9') /* while (c >= 0 && c <= 9); */
 	{
 		(*strrs)->width = (*strrs)->width * 10;
 		(*strrs)->width = (*strrs)->width + c -'0';
@@ -32,7 +32,8 @@ void	check_precis(char **format, t_printf **strrs)
 	c = *(*format);
 	if (c == '.')
 	{
-		while (*(*format) >= 0 && *(*format) <= 9)
+			(*format)++;
+		while (*(*format) >= '0' && *(*format) <= '9')
 		{
 			(*strrs)->precis = (*strrs)->precis * 10;
 			(*strrs)->precis = (*strrs)->precis + c -'0';
@@ -97,13 +98,13 @@ void	check_length(char **format, t_printf **strrs)
 
 int		check_specifier(char **format, t_printf **strrs, va_list args)
    {
-   int	ret;
+   int	ret = 0;
    char c;
 
-   c = *(*format);
+   c = (**format);
    if (c == 's' || c == 'S') /*ft_strchr(*(format), 's') || ft_strchr((*format), 'S')*/
-   ret = ft_print_str(strrs, args);
+	 ret = ft_print_str(strrs, args);
    if (c == 'd' || c == 'i')/* ft_strchr(*(format), 'd') || ft_strchr((*format), 'i')*/
-   ret = print_num(strrs, args);
+	   ret = print_num(strrs, args);
    return (ret);
    }

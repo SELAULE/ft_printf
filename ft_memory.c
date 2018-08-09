@@ -1,5 +1,17 @@
 #include "ft_printf.h"
 
+void	pc(char c)
+{
+	write(1, &c, 1);
+}
+
+void	pn(long long n)
+{
+	if (n > 9)
+		pn(n / 10);
+	pc(n % 10 + '0');
+}
+
 long long   ft_memory(char *str,...)
 {
 	va_list a;

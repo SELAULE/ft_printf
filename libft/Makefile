@@ -6,7 +6,7 @@
 #    By: nselaule <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/28 09:44:43 by nselaule          #+#    #+#              #
-#    Updated: 2018/08/07 17:51:49 by nselaule         ###   ########.fr        #
+#    Updated: 2018/08/09 13:49:11 by nselaule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,7 @@ OBJ =	$(SRC:.c=.o)
 	
 all: $(NAME)
 $(NAME):
-	gcc -c $(FLAGS) $(SRC)
+	@gcc -c $(FLAGS) $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 

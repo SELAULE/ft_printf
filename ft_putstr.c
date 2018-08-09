@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 10:47:22 by nselaule          #+#    #+#             */
-/*   Updated: 2018/07/26 10:47:25 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/09 18:25:36 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int     ret_putstr(char *s)
     int i;
 
     i = 0;
-    while (s[i])
+    while (s[i] != '\0')
     {
         write(1, &s[i], 1);
         i++;
@@ -29,7 +29,7 @@ void     ret_putchar(char c, int n)
 {
     int i;
 
-    i = 0;
+    i = n;
     while (i < n)
     {
         write(1, &c, 1);
@@ -42,7 +42,7 @@ void     ret_putnstr(char *s, int n)
     int i;
 
     i = 0;
-    while (s[i] && i < n)
+    while (s[i] != '\0' && i < n)
     {
         write(1, &s[i], 1);
         i++;
@@ -63,7 +63,7 @@ int     ft_print_str( t_printf **strrs, va_list args)
         if ((*strrs)->flags == '-')
         {
             ret_putstr((!str) ? VOID_STR : str);
-            ret_putchar(' ', fill_me);
+            ret_putchar(' ', 1);
         }
         else
         {

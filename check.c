@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:29:33 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/09 17:11:52 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 11:27:57 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	check_length(char **format, t_printf **strrs)
 	if (c == 'h' && (c + 1) == 'h')
 	{
 		(*strrs)->len = 1;
-		(*format)++;
+		(*format) += 2;
 		return ;
 	}
 	if (c == 'h' && (c + 1) != 'h')
@@ -79,7 +79,7 @@ void	check_length(char **format, t_printf **strrs)
 	if (c == 'l' && (c + 1) == 'l')
 	{
 		(*strrs)->len = 4;
-		(*format)++;
+		(*format) += 2;
 		return ;
 	}
 	if (c == 'j')
@@ -101,10 +101,21 @@ int		check_specifier(char **format, t_printf **strrs, va_list args)
    int	ret = 0;
    char c;
 
-   c = (**format);
-   if (c == 's' || c == 'S') /*ft_strchr(*(format), 's') || ft_strchr((*format), 'S')*/
-	 ret = ft_print_str(strrs, args);
-   if (c == 'd' || c == 'i')/* ft_strchr(*(format), 'd') || ft_strchr((*format), 'i')*/
+   c = *(*format);
+   if (c == 's' || c == 'S')
+	   ret = ft_print_str(strrs, args);
+   if (c == 'd' || c == 'i')
 	   ret = print_num(strrs, args);
+   if (c == 'o')
+	   ret = print_num_oct(strrs, args);
+   if (c == 'O')
+	   ret = print_num_oct_upper(strrs, args);
+	   if (c == 'x')
+	   ret = print_num_hex(strrs, args);
+	   if (c == 'X')
+	   ret = print_num_hex_upper(strrs, args);
+	   if (c == 'c' || c == 'C')
+	   ret = print_chars(strrs, args);
+   (*format)++;
    return (ret);
    }

@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 12:04:31 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/09 17:35:14 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 09:47:38 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int		main(void)
 	printf("----------TESTING CHARACTERS--------------\n");
     libc = printf("Characters: %c %c \n", 'a', 65);
     libft = ft_printf("Characters: %c %c \n", 'a', 65);
-	printf("---------- END OF TESTING CHARACTERS--------------\n");
     if (libc !=  libft)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
     

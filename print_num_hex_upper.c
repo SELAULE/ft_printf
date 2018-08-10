@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:28:19 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/03 07:28:21 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 10:45:17 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int     print_num_hex_upper(t_printf **strrs, va_list args)
          return ((*strrs)->width);
     }
     ret = ft_strlen(str);
+	ret_putstr(str);
     (str) ? free(str) : 0;
     return (ret);
 }

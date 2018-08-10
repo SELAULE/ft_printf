@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 10:09:36 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/09 18:25:45 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 08:26:33 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,7 @@
 #include "libft/libft.h"
 #define VOID_STR "(null)"
 #include <stdio.h>
-cu	ft_ipr	ft_pr	
-ls
-
-
-typede	ft_pr	ft_pr	
-struct	s_printf
+typedef	struct	s_printf
 {
 	int			width;
 	int			precis;
@@ -44,6 +39,7 @@ char			*ft_itoa_base(long long n, int base);
 char			*ft_itoa_base_upper(long long n, int base);
 int				len_base(long long nb, int base);
 int				ret_putstr(char *s);
+int				print_chars( t_printf **strrs, va_list args);
 void			ret_putchar(char c, int n);
 void			ret_putnstr(char *s, int n);
 long long		get_value(t_printf **strrs, va_list args);

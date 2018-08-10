@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:27:47 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/03 07:27:56 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 10:42:05 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int     print_num_hex(t_printf **strrs, va_list args)
     {
         fill_me = (*strrs)->precis - ft_strlen(str);
         ret_putchar('0', fill_me);
+        //write(1, "0x", 2);
         ret_putstr(str);
         return(((*strrs)->precis));
     }
@@ -40,17 +41,18 @@ int     print_num_hex(t_printf **strrs, va_list args)
             ret = 1;
         }
         if ((*strrs)->flags != '-')
-        ret_putchar((((*strrs)->flags == '0') ? '0' : ' '), (sign || ret) ?
-        (*strrs)->width - ft_strlen(str) - 1 : 
-         (*strrs)->width - ft_strlen(str));
+        ret_putchar((((*strrs)->flags == '0') ? '0' : ' '), (sign || ret) ? (*strrs)->width - ft_strlen(str) - 1 : (*strrs)->width - ft_strlen(str));
          if (sign && str[0] == '-')
          ret_putchar('+', 1);
+         //write(1, "0x", 2);
          ret_putstr(str);
          if ((*strrs)->flags == '-')
          ret_putchar(' ', (*strrs)->width - ft_strlen(str));
          return ((*strrs)->width);
     }
     ret = ft_strlen(str);
+    write(1, "0x", 2);
+	ft_putstr(str);
     (str) ? free(str) : 0;
     return (ret);
 }

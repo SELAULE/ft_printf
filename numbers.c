@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 16:00:55 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/02 16:00:57 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/10 10:33:37 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int     print_num(t_printf **strrs, va_list args)
          return ((*strrs)->width);
     }
     ret = ft_strlen(str);
+	ft_putstr(str);
     (str) ? free(str) : 0;
     return (ret);
 }

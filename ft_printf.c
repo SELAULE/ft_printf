@@ -42,7 +42,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if (*fmt == '%')
 		{
-//			bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
+			//bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
 			print_char = order_of_call(&fmt, args, &strrs);
 			ft_bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
 		}

@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:29:33 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/10 11:27:57 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/12 10:43:40 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_precis(char **format, t_printf **strrs)
 	c = *(*format);
 	if (c == '.')
 	{
-			(*format)++;
+		(*format)++;
 		while (*(*format) >= '0' && *(*format) <= '9')
 		{
 			(*strrs)->precis = (*strrs)->precis * 10;
@@ -97,25 +97,29 @@ void	check_length(char **format, t_printf **strrs)
 }
 
 int		check_specifier(char **format, t_printf **strrs, va_list args)
-   {
-   int	ret = 0;
-   char c;
+{
+	int	ret = 0;
+	char c;
 
-   c = *(*format);
-   if (c == 's' || c == 'S')
-	   ret = ft_print_str(strrs, args);
-   if (c == 'd' || c == 'i')
-	   ret = print_num(strrs, args);
-   if (c == 'o')
-	   ret = print_num_oct(strrs, args);
-   if (c == 'O')
-	   ret = print_num_oct_upper(strrs, args);
-	   if (c == 'x')
-	   ret = print_num_hex(strrs, args);
-	   if (c == 'X')
-	   ret = print_num_hex_upper(strrs, args);
-	   if (c == 'c' || c == 'C')
-	   ret = print_chars(strrs, args);
-   (*format)++;
-   return (ret);
-   }
+	c = *(*format);
+	/*printf("here: %c -- \n", c);
+	exit(0);*/
+	if (c == 's' || c == 'S')
+		ret = ft_print_str(strrs, args);
+	else if (c == 'd' || c == 'i')
+		ret = print_num(strrs, args);
+	else if (c == 'o')
+		ret = print_num_oct(strrs, args);
+	else if (c == 'O')
+		ret = print_num_oct_upper(strrs, args);
+	else if (c == 'x')
+		ret = print_num_hex(strrs, args);
+	else if (c == 'X')
+		ret = print_num_hex_upper(strrs, args);
+	else if (c == 'c' || c == 'C')
+		ret = print_chars(strrs, va_arg(args, int));
+	else
+	ret = print_chars(strrs, c);
+	(*format)++;
+	return (ret);
+}

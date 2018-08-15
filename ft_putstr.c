@@ -29,11 +29,16 @@ void     ret_putchar(char c, int n)
 {
     int i;
 
-    i = n;
+    i = 0;
+    if (n == 0)
+    return ;
+    else
+    {
     while (i < n)
     {
         write(1, &c, 1);
         i++;
+    }
     }
 }
 
@@ -63,7 +68,7 @@ int     ft_print_str( t_printf **strrs, va_list args)
         if ((*strrs)->flags == '-')
         {
             ret_putstr((!str) ? VOID_STR : str);
-            ret_putchar(' ', 1);
+            //ret_putchar(' ', 1);
         }
         else
         {

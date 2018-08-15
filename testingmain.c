@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 12:04:31 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/10 09:47:38 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/15 15:20:11 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(void)
     unsigned char x = 'A';
     unsigned int y  = 54321;
     unsigned long z = 0x4A6F6E00;
-    wchar_t unicodestr[6] = {0x0023, 0x0024, 0x0025, 0x0026, 0x0027, '\0'};
+//    wchar_t unicodestr[6] = {0x0023, 0x0024, 0x0025, 0x0026, 0x0027, '\0'};
     
     char buf [] = "Test String";
     char *p = buf;
@@ -47,7 +47,7 @@ int		main(void)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
     
     libc = printf("Percent: %%\n");
-    libft = ft_printf("Percent: %%\n");
+    libft = ft_printf("Percent: % t\n");
     if (libc !=  libft)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
 
@@ -66,11 +66,11 @@ int		main(void)
     if (libc !=  libft)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
   
-    libc = printf("Unicode str %S\n", unicodestr);
+/*    libc = printf("Unicode str %S\n", unicodestr);
     libft = ft_printf("Unicode str %S\n", unicodestr);
     if (libc !=  libft)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
-	
+*/	
     libc = printf("Decimals: %d %ld\n", 1977, 650000L);
     libft = ft_printf("Decimals: %d %ld\n", 1977, 650000L);
     if (libc !=  libft)

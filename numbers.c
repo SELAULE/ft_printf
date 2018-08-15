@@ -19,13 +19,13 @@ int     print_num(t_printf **strrs, va_list args)
     int ret;
     int sign;
 
-    (*strrs)->width--;
+    //(*strrs)->width--;
     str = ft_itoa_base(get_value(strrs, args), 10);
     ret = 0;
     sign = 0;
     if ((*strrs)->precis > ft_strlen(str))
     {
-        fill_me = (*strrs)->precis - ft_strlen(str);
+        fill_me = (*strrs)->precis - ft_strlen(str) - 1;
         ret_putchar('0', fill_me);
         ret_putstr(str);
         return((*strrs)->precis);

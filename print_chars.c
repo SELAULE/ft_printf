@@ -20,13 +20,14 @@ int     print_chars(t_printf **strrs, char str)
 
     ret = 1;
     //str = va_arg(args, int);
-    if((*strrs)->width > 1)
+    //(*strrs)->width--;
+    if ((*strrs)->width > 1)
     {
-        fill_me = 0;//(*strrs)->width - 1;
+        fill_me = (*strrs)->width - 1;
         if ((*strrs)->flags == '-')
         {
             ft_putchar(str);
-            ret_putchar(' ', 1);
+            ret_putchar(' ', fill_me);
         }
         else
         {

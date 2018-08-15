@@ -6,7 +6,7 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 12:04:31 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/15 15:20:11 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/15 17:18:50 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		main(void)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
     
     libc = printf("Percent: %%\n");
-    libft = ft_printf("Percent: % t\n");
+    libft = ft_printf("Percent: %%\n");
     if (libc !=  libft)
         printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
 

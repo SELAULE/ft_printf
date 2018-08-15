@@ -34,21 +34,21 @@ int		ft_printf(const char *format, ...)
 	int			print_char;
 	t_printf	*strrs;
 
+	print_char = 0;
 	fmt = (char *)format;
 	strrs = (t_printf *)malloc(sizeof(t_printf));
 	va_start(args, format);
-
 	while (*fmt)
 	{
 		if (*fmt == '%')
 		{
-			//bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
-			print_char = order_of_call(&fmt, args, &strrs);
+			print_char += order_of_call(&fmt, args, &strrs);
 			ft_bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
 		}
 		else
 		{
-			print_char = print_char + write(1, fmt, 1);
+			print_char++;
+			write(1, fmt, 1);
 			fmt++;
 		}
 	}

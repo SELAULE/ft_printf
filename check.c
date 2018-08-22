@@ -6,43 +6,26 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:29:33 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/12 10:43:40 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/16 17:49:57 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_width(char **format, t_printf **strrs)
+void		check_width(char **format, t_printf **strrs)
 {
-	char c;
+	char	c;
 
 	c = *(*format);
-	while (*(*format) >= '0' && *(*format) <= '9') /* while (c >= 0 && c <= 9); */
+	while (*(*format) >= '0' && *(*format) <= '9')
 	{
 		(*strrs)->width = (*strrs)->width * 10;
-		(*strrs)->width = (*strrs)->width + c -'0';
+		(*strrs)->width = (*strrs)->width + c - '0';
 		(*format)++;
 	}
 }
 
-void	check_precis(char **format, t_printf **strrs)
-{
-	char c;
-
-	c = *(*format);
-	if (c == '.')
-	{
-		(*format)++;
-		while (*(*format) >= '0' && *(*format) <= '9')
-		{
-			(*strrs)->precis = (*strrs)->precis * 10;
-			(*strrs)->precis = (*strrs)->precis + c -'0';
-			(*format)++;
-		}
-	}
-}
-
-void	check_flags(char **format, t_printf **strrs)
+void		check_flags(char **format, t_printf **strrs)
 {
 	char c;
 
@@ -53,29 +36,12 @@ void	check_flags(char **format, t_printf **strrs)
 		(*format)++;
 	}
 }
-void	check_length(char **format, t_printf **strrs)
+
+void		fuck(char **format, t_printf **strrs)
 {
-	char c;
+	char	c;
 
 	c = *(*format);
-	if (c == 'h' && (c + 1) == 'h')
-	{
-		(*strrs)->len = 1;
-		(*format) += 2;
-		return ;
-	}
-	if (c == 'h' && (c + 1) != 'h')
-	{
-		(*strrs)->len = 2;
-		(*format)++;
-		return ;
-	}
-	if (c == 'l' && (c + 1) != 'l')
-	{
-		(*strrs)->len = 3;
-		(*format)++;
-		return ;
-	}
 	if (c == 'l' && (c + 1) == 'l')
 	{
 		(*strrs)->len = 4;
@@ -96,14 +62,39 @@ void	check_length(char **format, t_printf **strrs)
 	}
 }
 
-int		check_specifier(char **format, t_printf **strrs, va_list args)
+void		check_length(char **format, t_printf **strrs)
 {
-	int	ret = 0;
-	char c;
+	char	c;
 
 	c = *(*format);
-	/*printf("here: %c -- \n", c);
-	exit(0);*/
+	if (c == 'h' && (c + 1) == 'h')
+	{
+		(*strrs)->len = 1;
+		(*format) += 2;
+		return ;
+	}
+	if (c == 'h' && (c + 1) != 'h')
+	{
+		(*strrs)->len = 2;
+		(*format)++;
+		return ;
+	}
+	if (c == 'l' && (c + 1) != 'l')
+	{
+		(*strrs)->len = 3;
+		(*format)++;
+		return ;
+	}
+	fuck(format, strrs);
+}
+
+int			check_specifier(char **format, t_printf **strrs, va_list args)
+{
+	int		ret;
+	char	c;
+
+	ret = 0;
+	c = *(*format);
 	if (c == 's' || c == 'S')
 		ret = ft_print_str(strrs, args);
 	else if (c == 'd' || c == 'i')
@@ -118,8 +109,14 @@ int		check_specifier(char **format, t_printf **strrs, va_list args)
 		ret = print_num_hex_upper(strrs, args);
 	else if (c == 'c' || c == 'C')
 		ret = print_chars(strrs, va_arg(args, int));
+	else if (c == 'p')
+		ret = print_mem(strrs, args);
+		else if (c == 'u')
+		ret = print_num(strrs, args);
+				else if (c == 'U')
+		ret = print_num(strrs, args);
 	else
-	ret = print_chars(strrs, c);
+		ret = print_chars(strrs, c);
 	(*format)++;
 	return (ret);
 }

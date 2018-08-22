@@ -6,16 +6,16 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 13:02:03 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/12 13:02:13 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:10:04 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long   get_value(t_printf **strrs, va_list args)
+long long		get_value(t_printf **strrs, va_list args)
 {
-	int c;
-	long long ret;
+	int			c;
+	long long	ret;
 
 	c = (*strrs)->len;
 	if (c == 1)

@@ -6,16 +6,16 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/12 13:06:46 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/12 13:06:52 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:09:00 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long   get_value_uns(t_printf **strrs, va_list args)
+long long		get_value_uns(t_printf **strrs, va_list args)
 {
-	int c;
-	long long ret;
+	int			c;
+	long long	ret;
 
 	c = (*strrs)->len;
 	if (c == 1)
@@ -31,6 +31,6 @@ long long   get_value_uns(t_printf **strrs, va_list args)
 	if (c == 6)
 		ret = va_arg(args, size_t);
 	if (c == 0)
-		ret = va_arg(args, int);
+		ret = va_arg(args, unsigned int);
 	return (ret);
 }

@@ -6,15 +6,15 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 16:17:50 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/09 16:28:14 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:07:50 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int					len_base(long long nb, int base)
+int		len_base(long long nb, int base)
 {
-	int				len;
+	int	len;
 
 	len = 0;
 	if (nb < 0)
@@ -32,4 +32,3 @@ int					len_base(long long nb, int base)
 	}
 	return (len);
 }
-

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memory.c                                        :+:      :+:    :+:   */
+/*   check_precis.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/12 13:04:05 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/22 18:47:36 by nselaule         ###   ########.fr       */
+/*   Created: 2018/08/20 16:21:09 by nselaule          #+#    #+#             */
+/*   Updated: 2018/08/20 16:21:12 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				print_mem(t_printf **strrs, va_list args)
+void		check_precis(char **format, t_printf **strrs)
 {
-	char		*str;
-	int			ret;
-	t_printf *just = *strrs;
+	char	c;
 
-	just = NULL;
-	
-	long long i = va_arg(args,long long);
-	str = ft_itoa_base(i, 16); 
-	ret = 0;
-	ret += ret_putstr("0x");
-	ret_putstr(str);
-	ret += ft_strlen(str);
-	(str) ? free(str) : 0;
-	return (ret);
+	c = *(*format);
+	if (c == '.')
+	{
+		(*format)++;
+		while (*(*format) >= '0' && *(*format) <= '9')
+		{
+			(*strrs)->precis = (*strrs)->precis * 10;
+			(*strrs)->precis = (*strrs)->precis + c - '0';
+			(*format)++;
+		}
+	}
 }

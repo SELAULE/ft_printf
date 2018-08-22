@@ -6,12 +6,11 @@
 /*   By: nselaule <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 10:09:18 by nselaule          #+#    #+#             */
-/*   Updated: 2018/08/10 10:27:07 by nselaule         ###   ########.fr       */
+/*   Updated: 2018/08/16 18:06:35 by nselaule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <strings.h>/*************************DELETE****************************/
 
 int		order_of_call(char **format, va_list args, t_printf **strrs)
 {
@@ -23,7 +22,6 @@ int		order_of_call(char **format, va_list args, t_printf **strrs)
 	check_precis(format, strrs);
 	check_length(format, strrs);
 	ret = check_specifier(format, strrs, args);
-	//(*format) = (*format) + ret;
 	return (ret);
 }
 
@@ -43,13 +41,12 @@ int		ft_printf(const char *format, ...)
 		if (*fmt == '%')
 		{
 			print_char += order_of_call(&fmt, args, &strrs);
-			ft_bzero(strrs, sizeof(t_printf));/******************CHANGE**********/
+			ft_bzero(strrs, sizeof(t_printf));
 		}
 		else
 		{
 			print_char++;
-			write(1, fmt, 1);
-			fmt++;
+			write(1, fmt++, 1);
 		}
 	}
 	va_end(args);

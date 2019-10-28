@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>/********************DELETE*******************************/
+// #include "ft_printf.h"
+// #include <stdio.h>/********************DELETE*******************************/
 
-void    print_mem(void v)
-{
-    long long *ptr;
+// void    print_mem(void v)
+// {
+//     long long *ptr;
 
-    ptr = malloc(sizeof(long long));
-    ptr = &v;
-    write(1, &ptr, 1);
-}
+//     ptr = malloc(sizeof(long long));
+//     ptr = &v;
+//     write(1, &ptr, 1);
+// }
 
-int     main(void)
-{
-    char c;
+// int     main(void)
+// {
+//     char c;
 
-    c = 42;
-    print_mem((char)c);
-}
+//     c = 42;
+//     print_mem((char)c);
+// }

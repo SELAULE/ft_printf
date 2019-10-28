@@ -108,7 +108,7 @@ int			check_specifier(char **format, t_printf **strrs, va_list args)
 	else if (c == 'X')
 		ret = print_num_hex_upper(strrs, args);
 	else if (c == 'c' || c == 'C')
-		ret = print_chars(strrs, va_arg(args, int));
+		ret = print_chars(strrs, c);
 	else if (c == 'p')
 		ret = print_mem(strrs, args);
 		else if (c == 'u')

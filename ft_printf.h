@@ -39,7 +39,7 @@ char			*ft_itoa_base(long long n, int base);
 char			*ft_itoa_base_upper(long long n, int base);
 int				len_base(long long nb, int base);
 int				ret_putstr(char *s);
-int				print_chars( t_printf **strrs, va_list args);
+int				print_chars( t_printf **strrs, char str);
 void			ret_putchar(char c, int n);
 void			ret_putnstr(char *s, int n);
 long long		get_value(t_printf **strrs, va_list args);
@@ -49,4 +49,6 @@ int				print_num_hex(t_printf **strrs, va_list args);
 int				print_num_oct_upper(t_printf **strrs, va_list args);
 int				print_num_oct(t_printf **strrs, va_list args);
 long long		get_value_uns(t_printf **strrs, va_list args);
+int				print_mem(t_printf **strrs, va_list args);
+
 #endif

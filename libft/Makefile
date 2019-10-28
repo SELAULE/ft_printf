@@ -15,7 +15,7 @@
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g -ggdb3
 SRC =	ft_strlen.c		\
 		ft_memset.c		\
 		ft_isascii.c	\

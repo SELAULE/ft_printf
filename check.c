@@ -110,7 +110,7 @@ int			check_specifier(char **format, t_printf **strrs, va_list args)
 	else if (c == 'c' || c == 'C')
 		ret = print_chars(strrs, c);
 	else if (c == 'p')
-		ret = print_mem(strrs, args);
+		ret = print_mem(args);
 		else if (c == 'u')
 		ret = print_num(strrs, args);
 				else if (c == 'U')

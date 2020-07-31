@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-int				print_mem(t_printf **strrs, va_list args)
+int				print_mem(va_list args)
 {
 	char		*str;
 	int			ret;
-	t_printf *just = *strrs;
+	//t_printf *just = *strrs;
 
-	just = NULL;
+	//just = NULL;
 	
 	long long i = va_arg(args,long long);
 	str = ft_itoa_base(i, 16); 

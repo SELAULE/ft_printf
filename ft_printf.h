@@ -16,17 +16,17 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
-//#include <stdint.h>/***********************DELETE*****************************/
+#include <stdint.h>/***********************DELETE*****************************/
 #include "libft/libft.h"
 #define VOID_STR "(null)"
 #include <stdio.h>
 typedef	struct	s_printf
 {
-	int			width;
-	int			precis;
-	int			flags;
-	int			len;
-}				t_printf;
+	int	width;
+	int	precis;
+	int	flags;
+	int	len;
+}	        t_printf;
 
 int				ft_printf(const char *format, ...);
 void			check_flags(char **format,t_printf **strrs);
@@ -49,6 +49,6 @@ int				print_num_hex(t_printf **strrs, va_list args);
 int				print_num_oct_upper(t_printf **strrs, va_list args);
 int				print_num_oct(t_printf **strrs, va_list args);
 long long		get_value_uns(t_printf **strrs, va_list args);
-int				print_mem(t_printf **strrs, va_list args);
+int				print_mem(va_list args);
 
 #endif

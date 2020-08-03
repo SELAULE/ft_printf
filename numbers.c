@@ -48,7 +48,7 @@ int			print_num(t_printf **strrs, va_list args)
 	int		ret;
 	int		sign;
 
-	(*strrs)->width--;
+	//(*strrs)->width--;
 	str = ft_itoa_base(get_value(strrs, args), 10);
 	ret = 0;
 	sign = 0;

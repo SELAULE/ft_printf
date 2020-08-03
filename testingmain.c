@@ -80,7 +80,7 @@ int		main(void)
 	libft = ft_printf("Preceding with blanks: %10d \n", 1977);
 	if (libc !=  libft)
 		printf("Dude your printf returned %d instead of %d, WTF ??\n", libft, libc);
-
+        return 0;
 	libc = printf("Octal: %o\n", 5000);
 	libft = ft_printf("Octal: %o\n", 5000);
 	if (libc !=  libft)

@@ -14,7 +14,7 @@
 
 static int	cut_oct(t_printf **strrs, char *str, int ret, int sign)
 {
-	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags = '+') ? 1 : 0))
+	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags == '+') ? 1 : 0))
 	{
 		if ((*strrs)->flags == '+')
 			sign = 1;
@@ -33,14 +33,15 @@ static int	cut_oct(t_printf **strrs, char *str, int ret, int sign)
 		ret_putstr(str);
 		if ((*strrs)->flags == '-')
 			ret_putchar(' ', (*strrs)->width - ft_strlen(str));
+		if ((*strrs)->flags == '#')
+		{
+			ft_putchar(43);
+			ret += 1;
+		}
 		return ((*strrs)->width);
 	}
 	ret = ft_strlen(str);
-	if ((*strrs)->flags == '#')
-	{
-			ft_putchar(43);
-			ret += 1;
-	}
+	
 	ret_putstr(str);
 	(str) ? free(str) : 0;
 	return (ret);

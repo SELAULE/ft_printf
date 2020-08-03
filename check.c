@@ -14,13 +14,10 @@
 
 void		check_width(char **format, t_printf **strrs)
 {
-	char	c;
-
-	c = *(*format);
 	while (*(*format) >= '0' && *(*format) <= '9')
 	{
 		(*strrs)->width = (*strrs)->width * 10;
-		(*strrs)->width = (*strrs)->width + c - '0';
+		(*strrs)->width = (*strrs)->width + *(*format) - '0';
 		(*format)++;
 	}
 }
@@ -42,21 +39,22 @@ void		fuck(char **format, t_printf **strrs)
 	char	c;
 
 	c = *(*format);
-	if (c == 'l' && (c + 1) == 'l')
+	if (c == 'h' && (c++) == 'h')
 	{
-		(*strrs)->len = 4;
+		(*strrs)->len = 1;
 		(*format) += 2;
 		return ;
-	}
-	if (c == 'j')
+	}	
+	
+	else if (c == 'h' && (c + 1) != 'h')
 	{
-		(*strrs)->len = 5;
+		(*strrs)->len = 2;
 		(*format)++;
 		return ;
 	}
-	if (c == 'z')
+	else if (c == 'j')
 	{
-		(*strrs)->len = 6;
+		(*strrs)->len = 5;
 		(*format)++;
 		return ;
 	}
@@ -67,19 +65,22 @@ void		check_length(char **format, t_printf **strrs)
 	char	c;
 
 	c = *(*format);
-	if (c == 'h' && (c + 1) == 'h')
+
+	if (c == 'l' && (c++) == 'l')
 	{
-		(*strrs)->len = 1;
+		(*strrs)->len = 4;
 		(*format) += 2;
 		return ;
 	}
-	if (c == 'h' && (c + 1) != 'h')
+
+	else if (c == 'z')
 	{
-		(*strrs)->len = 2;
+		(*strrs)->len = 6;
 		(*format)++;
 		return ;
 	}
-	if (c == 'l' && (c + 1) != 'l')
+	
+	else if (c == 'l' && (c + 1) != 'l')
 	{
 		(*strrs)->len = 3;
 		(*format)++;

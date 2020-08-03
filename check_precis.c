@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+#include <stdio.h>
 void		check_precis(char **format, t_printf **strrs)
 {
 	char	c;
@@ -23,7 +23,7 @@ void		check_precis(char **format, t_printf **strrs)
 		while (*(*format) >= '0' && *(*format) <= '9')
 		{
 			(*strrs)->precis = (*strrs)->precis * 10;
-			(*strrs)->precis = (*strrs)->precis + c - '0';
+			(*strrs)->precis = (*strrs)->precis + *(*format) - '0';
 			(*format)++;
 		}
 	}

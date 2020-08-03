@@ -14,7 +14,7 @@
 
 static int	cut_hex(t_printf **strrs, char *str, int ret, int sign)
 {
-	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags = '+') ? 1 : 0))
+	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags == '+') ? 1 : 0))
 	{
 		if ((*strrs)->flags == '+')
 			sign = 1;
@@ -28,13 +28,17 @@ static int	cut_hex(t_printf **strrs, char *str, int ret, int sign)
 			ret_putchar((((*strrs)->flags == '0') ? '0' : ' '), (sign || ret) ?
 					(*strrs)->width - ft_strlen(str) - 1 :
 					(*strrs)->width - ft_strlen(str));
+			
 		if (sign && str[0] == '-')
 			ret_putchar('+', 1);
 		ret_putstr(str);
 		if ((*strrs)->flags == '-')
 			ret_putchar(' ', (*strrs)->width - ft_strlen(str));
+		
 		return ((*strrs)->width);
 	}
+	if ((*strrs)->flags == '#')
+		ret_putnstr("0x", 2);
 	ret = ft_strlen(str);
 	ft_putstr(str);
 	(str) ? free(str) : 0;

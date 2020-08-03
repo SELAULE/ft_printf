@@ -5,10 +5,18 @@
 
 int		main(void)
 {
-	ft_printf("Preceding with blanks: %10d \n", 1977);
-	ft_printf("%-600d :\n", 42);
-	printf("%lu :\n", sizeof(intmax_t));
-//	printf("%lu :", sizeof(ptrdiff_t));
-	printf("%lu :\n", sizeof(long long int));
+
+    int origin;
+    origin = printf ("Preceding with blanks: %d \n", ' ');
+    int fake;
+    fake  = ft_printf ("Preceding with blanks: %d \n", ' ');
+    if (origin != fake)
+        printf("Dude no origin : %d and fake : %d\n", origin, fake);
+    else
+    {
+        printf("Welldone\n");
+    }
+  
+
 	return (0);
 }

@@ -14,7 +14,7 @@
 
 static int	cut_oct_u(t_printf **strrs, char *str, int ret, int sign)
 {
-	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags = '+') ? 1 : 0))
+	if ((*strrs)->width > ft_strlen(str) + (((*strrs)->flags == '+') ? 1 : 0))
 	{
 		if ((*strrs)->flags == '+')
 			sign = 1;
@@ -33,6 +33,7 @@ static int	cut_oct_u(t_printf **strrs, char *str, int ret, int sign)
 		ret_putstr(str);
 		if ((*strrs)->flags == '-')
 			ret_putchar(' ', (*strrs)->width - ft_strlen(str));
+		
 		return ((*strrs)->width);
 	}
 	ret = ft_strlen(str);
@@ -50,6 +51,7 @@ int			print_num_oct_upper(t_printf **strrs, va_list args)
 	str = ft_itoa_base_upper(get_value_uns(strrs, args), 8);
 	ret = 0;
 	sign = 0;
+	
 	if ((*strrs)->precis > ft_strlen(str))
 	{
 		fill_me = (*strrs)->precis - ft_strlen(str);
